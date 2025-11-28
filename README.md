@@ -35,3 +35,20 @@ npm run dev
 This will start the Next.js application, typically on port `9002`. Open [http://localhost:9002](http://localhost:9002) with your browser to see the result.
 
 The main application logic can be found in `src/app/page.tsx`. The load balancing algorithms are implemented in `src/lib/wrr.ts` and `src/lib/ch.ts`. The AI assistant's logic and prompts are located in `src/ai/flows/hades-flow.ts`.
+
+## Vercel Deployment
+
+- **Redact secrets:** This repository had local `.env` files with API keys. These are replaced with placeholders. Do not commit real keys.
+- **Set env vars on Vercel:** In your Vercel project dashboard, add `GEMINI_API_KEY` to Environment Variables.
+- **Remove Firebase hosting files:** Firebase hosting config was removed because Vercel handles hosting/builds differently.
+- **Build & deploy:** Connect this GitHub repository to Vercel or push the `main` branch and let Vercel run the `npm run build` script.
+
+Quick git commands to prepare and push:
+
+```powershell
+git add -A
+git commit -m "Prepare repo for Vercel: redact env, remove Firebase hosting config"
+git push origin main
+```
+
+Then connect the repo in the Vercel dashboard and set the environment variables under Project Settings.
